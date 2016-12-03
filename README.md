@@ -1,7 +1,8 @@
 # quiz_blank
 Blank for creating quiz
 
-App created using [Webix library](http://webix.com) free (standard) version. See it's license file in codebase folder 
+App created in September 2016 using [Webix library](http://webix.com) free (standard) version.
+See it's license file in codebase folder 
 
 App design has two languages: English and Russian.
 You can switch between by comment/uncomment assets/questions.js, assets/design.js in index.html and and changing title section 
