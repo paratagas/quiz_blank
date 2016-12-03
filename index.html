@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--<title>Тестовое задание</title>-->
+		<title>Test quiz</title>
+		<link href="codebase/webix.css" rel="stylesheet" type="text/css">
+		<link href="assets/styles.css" rel="stylesheet" type="text/css">
+						
+		<script type="text/javascript" src="codebase/webix.js"></script>
+		<!--<script type="text/javascript" src="assets/questions.js"></script>-->
+		<script type="text/javascript" src="assets/questions_en.js"></script>
+		<!--<script type="text/javascript" src="assets/design.js"></script>-->
+		<script type="text/javascript" src="assets/design_en.js"></script>
+		<script type="text/javascript" src="assets/logic.js"></script>
+		  
+	</head>
+
+	<body>
+
+		<script type="text/javascript" charset="utf-8">
+
+			webix.ui({
+				view: "layout",
+				id: "mainLayout",
+				rows:[
+					{
+						cols: [
+							{
+								view:"toolbar",
+								height: 50,
+								elements: [
+									{
+										view: "label",
+										template: "<span class='main_title'>" + pageDesign.title + "</span>"
+									},
+									{},
+									{ 
+										view: "button", 
+										id: "infoButton",
+										type: "image",
+										image:"icons/pages_warning.png",
+										label: pageDesign.infoButton,	
+										width: 150,
+										on: {
+										    "onItemClick": infoButtonClick
+										}
+
+									},
+									{width: 10},
+									{ 
+										view: "button",
+										id: "correctAnswerButton",
+										disabled: true,
+										type: "image",
+										image:"icons/note_accept.png",
+										label: pageDesign.correctAnswerButton, 
+										badge: result.correctAnswers, 
+										width: 250,
+										on: {
+										    "onItemClick": correctAnswerButtonClick
+										}
+									},
+									{width: 10},
+									{ 
+										view: "button", 
+										id: "inCorrectAnswerButton",
+										disabled: true,
+										type: "image",
+										image:"icons/light_bulb.png",
+										label: pageDesign.inCorrectAnswerButton, 
+										badge: result.inCorrectAnswers, 
+										width: 250,
+										on: {
+										    "onItemClick": inCorrectAnswerButtonClick
+										}
+									},
+									{width: 10},
+									{ 
+										view: "button", 
+										id: "viewInChartButton",
+										disabled: true,
+										type: "image",
+										image:"icons/report.png",
+										label: pageDesign.viewInChartButtonText, 
+										width: 250,
+										on: {
+										    "onItemClick": showChartButtonClick
+										}
+									}
+
+								]
+							}
+						]
+					},			
+					{
+						cols:[
+				            {
+				                width: 400,
+				                minWidth: 350,
+				                minHeight: 1000,
+				                rows:[
+				                	{height: 20},
+									{
+										cols:[
+											{
+												view: "button", 
+												id: "beginTestButton",
+												label: pageDesign.beginTestButton, 
+												inputWidth: 200,
+												on: {
+												    "onItemClick": beginTestButtonClick
+												}
+											},
+											{
+												view: "button", 
+												id: "resetTestButton",
+												label: pageDesign.resetTestButton, 
+												inputWidth: 200,
+												on: {
+												    "onItemClick": resetTestButtonClick
+												}
+											}
+										]
+									},
+									{
+										css: "infoAside",
+										template: pageDesign.infoAboutTest
+									}
+								]
+				            },
+				            {
+				            	view:"resizer"
+				            },
+				            {
+								view:"layout",
+								id: "testField",
+								minWidth: 800,
+								disabled: true,
+								cols:[
+									{width: 20},
+									{
+										rows:[
+											{height: 20},
+											{
+												view: "textarea",
+												id: "questionText",
+												//label: "<b>Вопрос № 1</b>",
+												label: "<b>" + pageDesign.firstQquestionPlaceholder + "</b>",
+												labelAlign:"left",
+												labelWidth: 150,
+												inputWidth: 600,
+												height: 300, 
+												//value: pageDesign.questionTextPlaceholder
+												value: questionsObject.questions.question1.questionText
+											},
+											{
+												view: "radio",
+												id: "answerVariants",
+												label: "<b>" + pageDesign.labelForRadio + "</b>",
+												labelWidth: 250,
+												minWidth: 600,
+												minHeight: 400,
+												vertical: true,
+												value: 1, 
+												options: fillOptionsForRadioQuestions()
+											},
+											{height: 30},
+											{
+												view: "button", 
+												id: "nextQuestionButton",
+												label: pageDesign.nextQuestionButton, 
+												inputWidth: 200,
+												on: {
+												    "onItemClick": nextQuestionButtonClick
+												}
+											}
+										]
+									}
+								]
+				            }
+			        	]
+			    	}
+				]
+			});
+
+		</script>
+		
+	</body>
+
+</html>
