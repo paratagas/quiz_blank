@@ -8,6 +8,6 @@ You can switch between by comment/uncomment assets/questions.js, assets/design.j
 
 All popups are draggable
 
-App doesn't need server: all questions are in assets/questions.js (assets/questions_en.js) file (see instructions in it)
+App doesn't need server: all questions are in assets/questions.js (questions_en.js) file (see instructions in it)
 
-You may customize design elements in assets/design.js(design_en.js)
+You may customize design elements in assets/design.js (design_en.js)
