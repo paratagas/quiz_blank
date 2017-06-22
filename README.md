@@ -1,5 +1,6 @@
 # quiz_blank
 Blank for creating quiz
+![Quiz blank](http://i.imgur.com/fo44pek.png)
 
 App created in September 2016 using [Webix library](http://webix.com) free (standard) version.
 See it's license file in codebase folder 
